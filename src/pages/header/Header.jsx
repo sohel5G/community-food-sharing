@@ -50,7 +50,7 @@ const Header = () => {
                             </> :
                             <>
                                 <div className="flex items-center md:order-2">
-                                        <Link to={'/dashboard'}>
+                                        <Link to={'/dashboard/profile'}>
                                         <button
                                             type="button"
                                             className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -160,7 +160,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to={'/add-food'}
+                                    to={'/dashboard/add-food'}
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mt-4 lg:mt-0"
                                 >
                                     Add Food
@@ -168,7 +168,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to={'/manage-foods'}
+                                    to={'/dashboard/manage-foods'}
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mt-4 lg:mt-0"
                                 >
                                     Manage My Foods
@@ -176,7 +176,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to={'/food-request'}
+                                    to={'/dashboard/food-request'}
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mt-4 lg:mt-0"
                                 >
                                     My Food Request

@@ -10,6 +10,7 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import Dashboard from "../layout/Dashboard";
 import Profile from "../pages/dashboard/Profile";
+import DashboardContent from "../pages/dashboard/DashboardContent";
 
 const routes = createBrowserRouter([
     {
@@ -23,18 +24,6 @@ const routes = createBrowserRouter([
             {
                 path: '/available-foods',
                 element: <AvailableFoods></AvailableFoods>
-            },
-            {
-                path: '/add-food',
-                element: <AddFood></AddFood>
-            },
-            {
-                path: '/manage-foods',
-                element: <ManageFoods></ManageFoods>
-            },
-            {
-                path: '/food-request',
-                element: <FoodRequest></FoodRequest>
             },
             {
                 path: '/contact',
@@ -55,8 +44,24 @@ const routes = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children:[
             {
+                path:'',
+                element: <DashboardContent></DashboardContent>
+            },
+            {
                 path: 'profile',
                 element:<Profile></Profile>
+            },
+            {
+                path:'add-food',
+                element:<AddFood></AddFood>
+            },
+            {
+                path:'manage-foods',
+                element:<ManageFoods></ManageFoods>
+            },
+            {
+                path:'food-request',
+                element:<FoodRequest></FoodRequest>
             }
         ]
     }
