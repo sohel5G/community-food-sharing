@@ -1,0 +1,14 @@
+.header-menu li a{
+    padding: 5px 13px 7px!important;
+    border-radius: 7px!important;
+}
+.header-menu li a:hover{
+    background: #FA2371!important;
+    color: white!important;
+
+}
+.header-menu li a.active{
+    background: #FA2371;
+    color: white;
+}
+

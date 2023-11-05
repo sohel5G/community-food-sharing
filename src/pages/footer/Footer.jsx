@@ -9,17 +9,17 @@ const Footer = () => {
     return (
         <>
             <footer className="bg-gray-50 dark:bg-gray-700">
-                <div className="mx-auto container">
-                    <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+                <div className="mx-auto container py-9">
+                    <div className="grid grid-cols-1 gap-8 px-4 lg:py-8 md:grid-cols-2 lg:grid-cols-4">
                         <div>
                             <div>
                                 <img 
-                                className="w-28 mx-auto" 
+                                className="w-28 lg:mx-auto" 
                                 src={themeMode === 'light' ? logoBlack : logowhite}
                                 alt="" />
                             </div>
 
-                            <div className="flex mt-6 space-x-3 justify-center">
+                            <div className="flex mt-6 space-x-3 lg:justify-center">
                                 <a
                                     href="https://web.facebook.com/sohel5G/"
                                     target="blank"
@@ -44,23 +44,24 @@ const Footer = () => {
                             </div>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                Help center
+                            <h2 className="mb-6 text-base font-semibold text-gray-900 uppercase dark:text-white">
+                                Informations
                             </h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                                
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">
-                                        Discord Server
+                                        About us
                                     </a>
                                 </li>
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">
-                                        Twitter
+                                        Privacy Policy
                                     </a>
                                 </li>
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">
-                                        Facebook
+                                        Term and Conditions
                                     </a>
                                 </li>
                                 <li className="mb-4">
@@ -71,51 +72,45 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                Legal
+                            <h2 className="mb-6 text-base font-semibold text-gray-900 uppercase dark:text-white">
+                                Quick Links
                             </h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">
-                                        Privacy Policy
+                                        Available Foods
                                     </a>
                                 </li>
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">
-                                        Licensing
+                                        Add Food
                                     </a>
                                 </li>
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">
-                                        Terms &amp; Conditions
+                                        Manage My Foods
+                                    </a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">
+                                        My Food Request
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                Download
+                            <h2 className="mb-6 text-base font-semibold text-gray-900 uppercase dark:text-white">
+                                Contact info
                             </h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
-                                    <a href="#" className="hover:underline">
-                                        iOS
-                                    </a>
+                                    <p><b>Address :</b> London Eye, London, United Kingdom</p>
                                 </li>
                                 <li className="mb-4">
-                                    <a href="#" className="hover:underline">
-                                        Android
-                                    </a>
+                                    <p><b>Phone :</b> +88 01735 42 83 25</p>
                                 </li>
                                 <li className="mb-4">
-                                    <a href="#" className="hover:underline">
-                                        Windows
-                                    </a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="#" className="hover:underline">
-                                        MacOS
-                                    </a>
+                                    <p><b>Email :</b> info@communityfood.com</p>
                                 </li>
                             </ul>
                         </div>
