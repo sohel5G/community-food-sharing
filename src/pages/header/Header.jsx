@@ -8,12 +8,12 @@ import "./header.css"
 
 const Header = () => {
     const { changeThemeMode, themeMode } = useThemeMode();
-    const user = {user: 'coderloft@gmail.com'} 
-    // const user = null
+    // const user = {user: 'coderloft@gmail.com'} 
+    const user = null
 
     return (
         <>
-            <nav className="bg-gray-50 dark:bg-gray-800 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+            <nav className="bg-gray-50 dark:bg-gray-800 fixed w-full z-50 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
                 <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to={'/'} className="flex items-center">
                         <img

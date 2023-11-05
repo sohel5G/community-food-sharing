@@ -1,11 +1,15 @@
+import Slider from "../../components/Slider";
 
 
 const Home = () => {
     return (
         <>
-            <h1 className="text-6xl text-center mt-24">Home Page</h1>
-
-            
+            <section className="mt-24">
+                <Slider></Slider>
+            </section>
+            <section>
+                <h1 className="py-96">hello</h1>
+            </section>
 
         </>
     );
