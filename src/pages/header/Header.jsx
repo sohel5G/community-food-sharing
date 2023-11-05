@@ -5,15 +5,17 @@ import { MdLightMode } from 'react-icons/md';
 import headerlogowhite from "../../assets/Logo/header-logo_white.png"
 import headerlogoblack from "../../assets/Logo/header-logo_black.png"
 import "./header.css"
+import { useContext } from "react";
+import { AllContext } from "../../provider/Authprovider";
 
 const Header = () => {
     const { changeThemeMode, themeMode } = useThemeMode();
-    // const user = {user: 'coderloft@gmail.com'} 
-    const user = null
+    const {user} = useContext(AllContext);
+
 
     return (
         <>
-            <nav className="bg-gray-50 dark:bg-gray-800 fixed w-full z-50 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+            <nav className="bg-gray-50 dark:bg-gray-800 fixed w-full z-50 top-0 left-0 border-b dark:border-none border-gray-200 dark:border-gray-600">
                 <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to={'/'} className="flex items-center">
                         <img
@@ -48,21 +50,23 @@ const Header = () => {
                             </> :
                             <>
                                 <div className="flex items-center md:order-2">
-                                    <button
-                                        type="button"
-                                        className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                                        id="user-menu-button"
-                                        aria-expanded="false"
-                                        data-dropdown-toggle="user-dropdown"
-                                        data-dropdown-placement="bottom"
-                                    >
-                                        <span className="sr-only">Open user menu</span>
-                                        <img
-                                            className="w-8 h-8 rounded-full"
-                                            src="https://picsum.photos/200"
-                                            alt="user photo"
-                                        />
-                                    </button>
+                                        <Link to={'/dashboard'}>
+                                        <button
+                                            type="button"
+                                            className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                                            id="user-menu-button"
+                                            aria-expanded="false"
+                                            data-dropdown-toggle="user-dropdown"
+                                            data-dropdown-placement="bottom"
+                                        >
+                                            <span className="sr-only">Open user menu</span>
+                                            <img
+                                                className="w-8 h-8 rounded-full"
+                                                    src={user?.photoURL || "https://i.ibb.co/k2mWfq6/placeholder.jpg"}
+                                                alt="user photo"
+                                            />
+                                        </button>
+                                    </Link>
                                     {/* Dropdown menu */}
                                     <div
                                         className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"

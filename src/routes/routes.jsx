@@ -8,6 +8,8 @@ import FoodRequest from "../pages/myFoodRequest/FoodRequest";
 import Contact from "../pages/contact/Contact";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import Dashboard from "../layout/Dashboard";
+import Profile from "../pages/dashboard/Profile";
 
 const routes = createBrowserRouter([
     {
@@ -48,6 +50,16 @@ const routes = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children:[
+            {
+                path: 'profile',
+                element:<Profile></Profile>
+            }
+        ]
+    }
 ]);
 
 export default routes

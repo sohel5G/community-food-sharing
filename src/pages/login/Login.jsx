@@ -1,8 +1,41 @@
 
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AllContext } from '../../provider/Authprovider';
+import { useContext } from 'react';
 
 const Login = () => {
+    const { googleSignInWithPopup, userLogIn } = useContext(AllContext);
+
+    const handleUserLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        userLogIn(email, password)
+            .then((succData) => {
+                const user = succData.user;
+                console.log(user)
+            })
+            .catch((errorData) => {
+                const error = errorData.message;
+                console.log('login error', error)
+            });
+    }
+
+    const handleUserSignInWithPopup = () => {
+        googleSignInWithPopup()
+            .then((succData) => {
+                const user = succData.user;
+                console.log(user)
+
+            }).catch((errorData) => {
+                const error = errorData.message;
+                console.log(error)
+            });
+    }
+
     return (
         <>
             <div className="flex justify-center items-center py-28 mt-[92px]">
@@ -12,7 +45,7 @@ const Login = () => {
                         <h1 className="text-lg pb-8 font-semibold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Sign in to your account
                         </h1>
-                        <form className="space-y-4 md:space-y-6" >
+                        <form className="space-y-4 md:space-y-6" onSubmit={handleUserLogin}>
                             <div>
                                 <label
                                     htmlFor="email"
@@ -91,7 +124,7 @@ const Login = () => {
                         <div className="flex justify-center items-center">
                             <div className='mt-2 my-4 mx-1'>
 
-                                <button className='text-primary-defaultPrimaryColor flex items-center gap-2 py-2 border border-primary-defaultPrimaryColor rounded-lg text-sm font-medium my-3 px-4 min-w-[185px] hover:bg-primary-defaultPrimaryColor hover:text-white dark:text-white dark:hover:text-primary-defaultPrimaryColor dark:hover:bg-white dark:border-white'><span> <FaGoogle /> </span> <span>Login with Google</span> </button>
+                                <button onClick={handleUserSignInWithPopup} className='text-primary-defaultPrimaryColor flex items-center gap-2 py-2 border border-primary-defaultPrimaryColor rounded-lg text-sm font-medium my-3 px-4 min-w-[185px] hover:bg-primary-defaultPrimaryColor hover:text-white dark:text-white dark:hover:text-primary-defaultPrimaryColor dark:hover:bg-white dark:border-white'><span> <FaGoogle /> </span> <span>Login with Google</span> </button>
 
                             </div>
                         </div>

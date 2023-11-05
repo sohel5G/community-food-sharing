@@ -1,7 +1,57 @@
 import { Link } from "react-router-dom";
 import { FaGoogle } from 'react-icons/fa';
+import { useContext } from "react";
+import { AllContext } from "../../provider/Authprovider";
 
 const Register = () => {
+
+    const { registerUser, userUpdateOnSignUp, setUser, googleSignInWithPopup } = useContext(AllContext);
+
+    const handleRegisterUser = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo_url = form.photo_url.value;
+        const password = form.password.value;
+
+        registerUser(email, password)
+            .then((succData) => {
+                const user = succData.user;
+
+                userUpdateOnSignUp({ displayName: name, photoURL: photo_url })
+                    .then(() => {
+
+                        setUser({ displayName: name, photoURL: photo_url, email: email });
+                        console.log('profile data set')
+
+                    }).catch((error) => {
+                        console.log('profile data not set', error)
+                    });
+
+                console.log('SignUp Use', user)
+            })
+            .catch((errorData) => {
+                const error = errorData.message;
+                console.log('SignUp error', error)
+            });
+
+    }
+
+
+    const handleUserSignInWithPopup = () => {
+        googleSignInWithPopup()
+            .then((succData) => {
+                const user = succData.user;
+                console.log(user)
+
+            }).catch((errorData) => {
+                const error = errorData.message;
+                console.log(error)
+            });
+    }
+
+
     return (
         <div className="mt-[92px] py-28 flex justify-center items-center">
             <div className="flex-1 max-w-md bg-white rounded-lg shadow dark:border dark:bg-gray-600 dark:border-gray-700">
@@ -9,7 +59,23 @@ const Register = () => {
                     <h1 className="text-lg pb-8 font-semibold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Create an account
                     </h1>
-                    <form className="space-y-4 md:space-y-6" >
+                    <form className="space-y-4 md:space-y-6" onSubmit={handleRegisterUser} >
+                        <div>
+                            <label
+                                htmlFor="name"
+                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            >
+                                Your name
+                            </label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Your name"
+                                required
+                            />
+                        </div>
                         <div>
                             <label
                                 htmlFor="email"
@@ -23,6 +89,22 @@ const Register = () => {
                                 id="email"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="name@company.com"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="photo_url"
+                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            >
+                                Profile Photo URL
+                            </label>
+                            <input
+                                type="url"
+                                name="photo_url"
+                                id="photo_url"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Profile picture URL"
                                 required
                             />
                         </div>
@@ -101,7 +183,7 @@ const Register = () => {
                     <div className="flex justify-center items-center">
                         <div className='mt-2 my-4 mx-1'>
 
-                            <button className='text-primary-defaultPrimaryColor flex items-center gap-2 py-2 border border-primary-defaultPrimaryColor rounded-lg text-sm font-medium my-3 px-4 min-w-[185px] hover:bg-primary-defaultPrimaryColor hover:text-white dark:text-white dark:hover:text-primary-defaultPrimaryColor dark:hover:bg-white dark:border-white'><span> <FaGoogle /> </span> <span>Login with Google</span> </button>
+                            <button onClick={handleUserSignInWithPopup} className='text-primary-defaultPrimaryColor flex items-center gap-2 py-2 border border-primary-defaultPrimaryColor rounded-lg text-sm font-medium my-3 px-4 min-w-[185px] hover:bg-primary-defaultPrimaryColor hover:text-white dark:text-white dark:hover:text-primary-defaultPrimaryColor dark:hover:bg-white dark:border-white'><span> <FaGoogle /> </span> <span>Login with Google</span> </button>
 
                         </div>
                     </div>

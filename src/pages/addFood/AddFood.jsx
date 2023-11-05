@@ -36,8 +36,8 @@ const AddFood = () => {
 
     return (
         <>
-            <section className="mt-[92px] bg-white dark:bg-gray-900">
-                <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+            <section className="mt-[92px] py-8 lg:py-16 px-4">
+                <div className="py-8 rounded-md px-4 mx-auto max-w-2xl dark:border dark:border-gray-700 shadow">
                     <h2 className="mb-12 text-4xl font-medium text-gray-900 dark:text-white">
                         Add A New Food
                     </h2>
