@@ -10,7 +10,7 @@ const Footer = () => {
         <>
             <footer className="bg-gray-50 dark:bg-gray-700">
                 <div className="mx-auto container py-9">
-                    <div className="grid grid-cols-1 gap-8 px-4 lg:py-8 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="grid grid-cols-1 gap-8 px-14 lg:px-4 lg:py-8 lg:grid-cols-4">
                         <div>
                             <div>
                                 <img 
@@ -117,9 +117,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="bg-gray-100 dark:bg-gray-800">
-                    <div className="px-4 py-6 container mx-auto  md:flex md:items-center md:justify-between">
-                    <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-                        © 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights
+                    <div className="px-4 py-6 container mx-auto text-center">
+                    <span className="text-sm text-gray-600 dark:text-gray-400 sm:text-center">
+                            © 2023 <a href="https://flowbite.com/">Community Food Sharing</a>. All Rights
                         Reserved.
                     </span>
                     </div>
