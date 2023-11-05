@@ -37,12 +37,14 @@ const Header = () => {
                         </button>
                         {
                             !user ? <>
-                                <button
-                                    type="button"
-                                    className="text-white bg-primary-700 hover:bg-primary-800 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0"
-                                >
-                                    Log In
-                                </button>
+                                <Link to={'/login'}>
+                                    <button
+                                        type="button"
+                                        className="text-white bg-primary-700 hover:bg-primary-800 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0"
+                                    >
+                                        Log In
+                                    </button>
+                                </Link>
                             </> :
                             <>
                                 <div className="flex items-center md:order-2">

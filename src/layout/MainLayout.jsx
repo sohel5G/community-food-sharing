@@ -4,11 +4,11 @@ import Header from "../pages/header/Header";
 
 const MainLayout = () => {
     return (
-        <>
+        <div className="dark:bg-gray-600">
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
-        </>
+        </div>
     );
 };
 
