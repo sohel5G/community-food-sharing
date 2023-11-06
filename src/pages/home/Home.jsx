@@ -4,7 +4,7 @@ import Slider from "../../components/Slider";
 const Home = () => {
     return (
         <>
-            <section className="mt-[92px]">
+            <section className="container mx-auto">
                 <Slider></Slider>
             </section>
             <section>
