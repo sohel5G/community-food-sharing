@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/home/Home";
-import MainLayout from "../layout/MainLayout";
 import AvailableFoods from "../pages/availableFoods/AvailableFoods";
 import AddFood from "../pages/addFood/AddFood";
 import ManageFoods from "../pages/manageMyFoods/ManageFoods";
@@ -8,9 +7,10 @@ import FoodRequest from "../pages/myFoodRequest/FoodRequest";
 import Contact from "../pages/contact/Contact";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
-import Dashboard from "../layout/Dashboard";
 import Profile from "../pages/dashboard/Profile";
 import DashboardContent from "../pages/dashboard/DashboardContent";
+import MainLayout from "../layout/MainLayout";
+import DashboardLayOut from "../layout/DashboardLayOut";
 
 const routes = createBrowserRouter([
     {
@@ -41,7 +41,7 @@ const routes = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <DashboardLayOut></DashboardLayOut>,
         children:[
             {
                 path:'',

@@ -53,7 +53,7 @@ const Register = () => {
 
 
     return (
-        <div className="mt-[92px] py-28 flex justify-center items-center">
+        <div className="py-28 flex justify-center items-center">
             <div className="flex-1 max-w-md bg-white rounded-lg shadow dark:border dark:bg-gray-600 dark:border-gray-700">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 className="text-lg pb-8 font-semibold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

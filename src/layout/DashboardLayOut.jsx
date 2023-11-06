@@ -1,14 +1,11 @@
-import { Outlet } from "react-router-dom";
-import Footer from "../pages/footer/Footer";
-// import Header from "../pages/header/Header";
+import Dashboard from "./Dashboard";
 
-const MainLayout = () => {
+
+const DashboardLayOut = () => {
     return (
-        
-
         <>
 
-        <div className="drawer">
+            <div className="drawer">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col">
                     {/* Navbar */}
@@ -29,10 +26,9 @@ const MainLayout = () => {
                         </div>
                     </div>
                     {/* Page content here */}
-                    
 
-                    <Outlet></Outlet>
-                    <Footer></Footer>
+
+                    <Dashboard></Dashboard>
 
                 </div>
                 <div className="drawer-side">
@@ -47,10 +43,7 @@ const MainLayout = () => {
 
 
         </>
-
-
     );
 };
 
-export default MainLayout;
-
+export default DashboardLayOut;

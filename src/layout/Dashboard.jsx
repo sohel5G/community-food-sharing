@@ -1,7 +1,6 @@
 import Footer from "../pages/footer/Footer";
-import Header from "../pages/header/Header";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import "./dashboard.css"
+import "./dashboard.css";
 import { FaUtensils, FaEnvelope } from 'react-icons/fa';
 import { PiBowlFoodBold } from 'react-icons/pi';
 import { MdFoodBank } from 'react-icons/md';
@@ -9,11 +8,8 @@ import { MdFoodBank } from 'react-icons/md';
 const Dashboard = () => {
     return (
         <div className="dark:bg-gray-600">
-            <section className="mt-[92px]">
-                <Header></Header>
-            </section>
             <section className="dark:bg-gradient-to-b dark:from-gray-700 dark:to-gray-600">
-                
+
                 <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-3">
                     <div className="bg-gray-50 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-700">
                         <aside className="flex items-center lg:min-h-[80vh]">

@@ -8,7 +8,7 @@ const Home = () => {
                 <Slider></Slider>
             </section>
             <section>
-                <h1 className="py-96">hello</h1>
+                <h1 className="py-40 text-6xl text-center">hello</h1>
             </section>
 
         </>
