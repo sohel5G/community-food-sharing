@@ -11,6 +11,7 @@ import Profile from "../pages/dashboard/Profile";
 import DashboardContent from "../pages/dashboard/DashboardContent";
 import MainLayout from "../layout/MainLayout";
 import DashboardLayOut from "../layout/DashboardLayOut";
+import SingleFoodDetails from "../pages/availableFoods/SingleFoodDetails";
 
 const routes = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/available-food/:id',
+                element:<SingleFoodDetails></SingleFoodDetails>
             }
         ]
     },
