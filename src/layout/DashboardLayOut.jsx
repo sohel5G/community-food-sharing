@@ -1,22 +1,31 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import Footer from "../pages/footer/Footer";
 import useThemeMode from "../hooks/useThemeMode";
-import { useContext } from "react";
-import { AllContext } from "../provider/Authprovider";
 import headerlogoblack from "../assets/Logo/header-logo_black.png"
 import headerlogowhite from "../assets/Logo/header-logo_white.png"
-import Footer from "../pages/footer/Footer";
-import { Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { AllContext } from "../provider/Authprovider";
+import "./mainLayout.css"
+import { MdDarkMode } from 'react-icons/md';
+import { MdLightMode } from 'react-icons/md';
+import logoBlack from "../assets/Logo/logo_black.png"
+import logowhite from "../assets/Logo/logo_white.png"
+
+// Dashboard imports
 import "./DashboardLayOut.css";
 import { FaUtensils, FaEnvelope } from 'react-icons/fa';
 import { PiBowlFoodBold } from 'react-icons/pi';
 import { MdFoodBank } from 'react-icons/md';
 
+
+
 const DashboardLayOut = () => {
-    const { themeMode } = useThemeMode();
+    const { themeMode, changeThemeMode } = useThemeMode();
     const { user } = useContext(AllContext);
     return (
 
-        <>
+
+  <>
 
         <div className="drawer">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -53,7 +62,7 @@ const DashboardLayOut = () => {
                                     <li>
                                         <NavLink
                                             to={'/'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             Home
                                         </NavLink>
@@ -61,7 +70,7 @@ const DashboardLayOut = () => {
                                     <li>
                                         <NavLink
                                             to={'/available-foods'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             Available Foods
                                         </NavLink>
@@ -69,7 +78,7 @@ const DashboardLayOut = () => {
                                     <li>
                                         <NavLink
                                             to={'/dashboard/add-food'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             Add Food
                                         </NavLink>
@@ -77,7 +86,7 @@ const DashboardLayOut = () => {
                                     <li>
                                         <NavLink
                                             to={'/dashboard/manage-foods'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             Manage My Foods
                                         </NavLink>
@@ -85,7 +94,7 @@ const DashboardLayOut = () => {
                                     <li>
                                         <NavLink
                                             to={'/dashboard/food-request'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             My Food Request
                                         </NavLink>
@@ -95,7 +104,19 @@ const DashboardLayOut = () => {
                             </div>
 
 
-                            <div>
+                            <div className="flex gap-4 items-center justify-center">
+                                <button className="flex justify-center items-center themeSwitchBtn text-lg" onClick={changeThemeMode}>
+                                    {themeMode === 'light' ?
+                                        <> <span className="text-black hover:text-primary-myPrimaryColor flex items-center gap-1 border p-1 rounded-full border-black">
+                                            <MdDarkMode></MdDarkMode>
+                                        </span>
+                                        </> :
+                                        <> <span className="text-white hover:text-primary-myPrimaryColor flex items-center gap-1 border p-1 rounded-full border-white">
+                                            <MdLightMode></MdLightMode>
+                                        </span>
+                                        </>
+                                    }
+                                </button>
                                 {
                                     !user ? <>
                                         <Link to={'/login'}>
@@ -132,11 +153,9 @@ const DashboardLayOut = () => {
                         </div>
                    </div>
 
-                    {/* Page content start here */}
+                    {/* Page content here */}
                     
-                   
-
-
+                    
 
 
                     <div className="dark:bg-gray-600">
@@ -255,27 +274,76 @@ const DashboardLayOut = () => {
 
 
 
+                {/* page content end here */}
 
 
 
-
-
-
-                    {/* Page content end here */}
 
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 min-h-full bg-gray-50 dark:bg-gray-800">
+                    <div>
+                        
+                    </div>
+                    <ul className="menu p-4 w-80 min-h-full bg-gray-50 dark:bg-gray-800 header-menu">
                         {/* Sidebar content here */}
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <li> 
+                            <img
+                            className="w-32 mx-auto lg:mx-auto"
+                            src={themeMode === 'light' ? logoBlack : logowhite}
+                            alt="Logo" /> 
+                        </li>
+                        
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"   
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/available-foods'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
+                            >
+                                Available Foods
+                            </NavLink>
+                        </li>
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/dashboard/add-food'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
+                            >
+                                Add Food
+                            </NavLink>
+                        </li>
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/dashboard/manage-foods'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
+                            >
+                                Manage My Foods
+                            </NavLink>
+                        </li>
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/dashboard/food-request'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
+                            >
+                                My Food Request
+                            </NavLink>
+                        </li>
+
                     </ul>
                 </div>
             </div>
 
 
         </>
+
+
+
 
 
     );

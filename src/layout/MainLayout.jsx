@@ -8,6 +8,8 @@ import { AllContext } from "../provider/Authprovider";
 import "./mainLayout.css"
 import { MdDarkMode } from 'react-icons/md';
 import { MdLightMode } from 'react-icons/md';
+import logoBlack from "../assets/Logo/logo_black.png"
+import logowhite from "../assets/Logo/logo_white.png"
 
 const MainLayout = () => {
     const { themeMode, changeThemeMode } = useThemeMode();
@@ -53,7 +55,7 @@ const MainLayout = () => {
                                     <li>
                                         <NavLink
                                             to={'/'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             Home
                                         </NavLink>
@@ -61,7 +63,7 @@ const MainLayout = () => {
                                     <li>
                                         <NavLink
                                             to={'/available-foods'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             Available Foods
                                         </NavLink>
@@ -69,7 +71,7 @@ const MainLayout = () => {
                                     <li>
                                         <NavLink
                                             to={'/dashboard/add-food'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             Add Food
                                         </NavLink>
@@ -77,7 +79,7 @@ const MainLayout = () => {
                                     <li>
                                         <NavLink
                                             to={'/dashboard/manage-foods'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             Manage My Foods
                                         </NavLink>
@@ -85,7 +87,7 @@ const MainLayout = () => {
                                     <li>
                                         <NavLink
                                             to={'/dashboard/food-request'}
-                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base"
+                                            className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
                                         >
                                             My Food Request
                                         </NavLink>
@@ -154,10 +156,59 @@ const MainLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 min-h-full bg-gray-50 dark:bg-gray-800">
+                    <div>
+                        
+                    </div>
+                    <ul className="menu p-4 w-80 min-h-full bg-gray-50 dark:bg-gray-800 header-menu">
                         {/* Sidebar content here */}
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <li> 
+                            <img
+                            className="w-32 mx-auto lg:mx-auto"
+                            src={themeMode === 'light' ? logoBlack : logowhite}
+                            alt="Logo" /> 
+                        </li>
+                        
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"   
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/available-foods'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
+                            >
+                                Available Foods
+                            </NavLink>
+                        </li>
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/dashboard/add-food'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
+                            >
+                                Add Food
+                            </NavLink>
+                        </li>
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/dashboard/manage-foods'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
+                            >
+                                Manage My Foods
+                            </NavLink>
+                        </li>
+                        <li className="mt-5">
+                            <NavLink
+                                to={'/dashboard/food-request'}
+                                className="hover:!bg-primary-defaultPrimaryColor hover:!text-white text-base dark:text-white"
+                            >
+                                My Food Request
+                            </NavLink>
+                        </li>
+
                     </ul>
                 </div>
             </div>
