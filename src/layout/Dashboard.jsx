@@ -1,6 +1,6 @@
 import Footer from "../pages/footer/Footer";
 import Header from "../pages/header/Header";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import "./dashboard.css"
 import { FaUtensils, FaEnvelope } from 'react-icons/fa';
 import { PiBowlFoodBold } from 'react-icons/pi';
@@ -20,7 +20,7 @@ const Dashboard = () => {
                             <div className="flex-1 px-3 py-4">
                                 <ul className="space-y-2 font-medium dashboard-navigation">
                                     <li>
-                                        <NavLink
+                                        <Link
                                             to={'/dashboard'}
                                             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
                                         >
@@ -35,7 +35,7 @@ const Dashboard = () => {
                                                 <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
                                             </svg>
                                             <span className="flex-1 ml-3 whitespace-nowrap group-hover:text-primary-defaultPrimaryColor dark:group-hover:text-primary-defaultPrimaryColor">Dashboard</span>
-                                        </NavLink>
+                                        </Link>
                                     </li>
                                     <li>
                                         <NavLink
