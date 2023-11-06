@@ -1,24 +1,27 @@
+import axios from "axios";
+import { useContext } from "react";
+import { AllContext } from "../../provider/Authprovider";
+import swal from 'sweetalert';
 
 const AddFood = () => {
-
-    const user = { img: "https://i.ibb.co/k2mWfq6/placeholder.jpg", name: "", email: "" }
+    const {user} = useContext(AllContext)
 
     const handleAddNewFood = (e) => {
         e.preventDefault();
         const form = e.target;
 
-        const food_name = form.food_name.value;
-        const food_image = form.food_image.value;
-        const pickup_location = form.pickup_location.value;
-        const food_quantity = form.food_quantity.value;
-        const expired_time = form.expired_time.value;
-        const additional_notes = form.additional_notes.value;
-        const donator_image = user.img || "https://i.ibb.co/k2mWfq6/placeholder.jpg";
-        const donator_name = user.name || "Unknown";
-        const donator_email = user.email || "Unknown";
+        const food_name = form.food_name.value || "Unknown";
+        const food_image = form.food_image.value || "Unknown";
+        const pickup_location = form.pickup_location.value || "Unknown";
+        const food_quantity = form.food_quantity.value || "Unknown";
+        const expired_time = form.expired_time.value || "Unknown";
+        const additional_notes = form.additional_notes.value || "Unknown";
+        const donator_image = user?.photoURL || "https://i.ibb.co/k2mWfq6/placeholder.jpg";
+        const donator_name = user?.displayName || "Unknown";
+        const donator_email = user?.email || "Unknown";
         const food_status = "Available"
 
-        const food = {
+        const newFood = {
             food_name,
             food_image,
             pickup_location,
@@ -31,7 +34,19 @@ const AddFood = () => {
             food_status
         }
 
-        console.log(food)
+
+        axios.post('http://localhost:5000/donner/add-foods', newFood)
+        .then(res => {
+            if (res.data.insertedId ){
+                swal({
+                    text: "Food added successfully",
+                    icon: "success",
+                    buttons: false,
+                })
+                form.reset()
+            }
+        })
+
     }
 
     return (
@@ -152,7 +167,7 @@ const AddFood = () => {
                         <input
                             type="submit"
                             value="Add Food"
-                            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+                            className="cursor-pointer inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
                         />
                     </form>
                 </div>

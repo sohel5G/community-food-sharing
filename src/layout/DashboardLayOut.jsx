@@ -32,7 +32,7 @@ const DashboardLayOut = () => {
                 <div className="drawer-content flex flex-col">
 
                     {/* Navbar */}
-                    <div className="bg-gray-50 dark:bg-gray-800 shadow-md">
+                    <div className="bg-gray-50 dark:bg-gray-800 shadow">
                         <div className="navbar container mx-auto flex justify-between">
 
                             {/* Mobile menu Icon  */}
