@@ -3,11 +3,12 @@
 // import banner3 from "../assets/banners/banner3.jpg"
 // import banner4 from "../assets/banners/banner4.jpg"
 
+
 const Slider = () => {
     return (
-        <>
-            <h1 className="text-5xl text-center py-36 bg-slate-500">Slider area</h1>
-        </>
+        <div>
+            <h1>Slider area</h1>
+        </div>
     );
 };
 
