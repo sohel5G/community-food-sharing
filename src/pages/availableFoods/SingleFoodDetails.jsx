@@ -1,11 +1,12 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { AllContext } from "../../provider/Authprovider";
 import swal from 'sweetalert';
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const SingleFoodDetails = () => {
+    const axiosSecure = useAxiosSecure()
     const { user } = useContext(AllContext)
     const { id } = useParams()
     const [food, setFood] = useState({})
@@ -22,11 +23,11 @@ const SingleFoodDetails = () => {
     }, [food.expired_time])
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/get/donated-foods?productId=${id}`)
+        axiosSecure.get(`/get-donated-foods?productId=${id}`)
             .then(res => {
                 setFood(res.data)
             })
-    }, [id])
+    }, [id, axiosSecure])
 
 
     const handleFoodRequest = e => {
@@ -60,7 +61,7 @@ const SingleFoodDetails = () => {
             donation_money,
         }
 
-        axios.post('http://localhost:5000/user/add-requested-foods', RequestedFood)
+        axiosSecure.post('/user-add-requested-foods', RequestedFood)
             .then(res => {
                 if (res.data.insertedId) {
                     setFoodAddedSuccessPopUp(res.data.insertedId)

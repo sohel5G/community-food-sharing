@@ -1,17 +1,18 @@
-import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import AvailableFoodCard from "./AvailableFoodCard";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AvailableFoods = () => {
     const [foods , setFoods] = useState([])
+    const axiosSecure = useAxiosSecure()
 
     useEffect(() => {
-        axios.get('http://localhost:5000/get/donated-foods')
-        .then(res => {
-            setFoods(res.data)
-        })    
-    },[])
+        axiosSecure.get('/get-donated-foods')
+            .then(res => {
+                setFoods(res.data)
+            })   
+    }, [axiosSecure])
 
     return (
         <div className="container mx-auto px-5 pb-24">

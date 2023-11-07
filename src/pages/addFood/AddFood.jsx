@@ -1,10 +1,11 @@
-import axios from "axios";
 import { useContext } from "react";
 import { AllContext } from "../../provider/Authprovider";
 import swal from 'sweetalert';
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AddFood = () => {
     const {user} = useContext(AllContext)
+    const axiosSecure = useAxiosSecure()
 
     const handleAddNewFood = (e) => {
         e.preventDefault();
@@ -35,7 +36,9 @@ const AddFood = () => {
         }
 
 
-        axios.post('http://localhost:5000/donner/add-foods', newFood)
+        
+
+        axiosSecure.post('/donner-add-foods', newFood)
         .then(res => {
             if (res.data.insertedId ){
                 swal({
