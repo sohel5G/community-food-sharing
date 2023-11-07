@@ -13,11 +13,15 @@ import MainLayout from "../layout/MainLayout";
 import DashboardLayOut from "../layout/DashboardLayOut";
 import SingleFoodDetails from "../pages/availableFoods/SingleFoodDetails";
 import PrivateRoute from "../privateRoute/PrivateRoute";
+import Error404 from "../pages/errorPage/Error404";
+import FoodEdit from "../pages/manageMyFoods/FoodEdit";
+import ManageFoodStatus from "../pages/manageMyFoods/ManageFoodStatus";
 
 const routes = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <Error404></Error404>,
         children: [
             {
                 path: '/',
@@ -33,11 +37,11 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <Login></Login> 
+                element: <Login></Login>
             },
             {
                 path: '/register',
-                element: <Register></Register> 
+                element: <Register></Register>
             },
             {
                 path: '/available-food/:id',
@@ -48,26 +52,35 @@ const routes = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute> <DashboardLayOut></DashboardLayOut> </PrivateRoute>,
-        children:[
+        errorElement: <Error404></Error404>,
+        children: [
             {
-                path:'',
+                path: '',
                 element: <DashboardContent></DashboardContent>
             },
             {
                 path: 'profile',
-                element:<Profile></Profile>
+                element: <Profile></Profile>
             },
             {
-                path:'add-food',
-                element:<AddFood></AddFood>
+                path: 'add-food',
+                element: <AddFood></AddFood>
             },
             {
-                path:'manage-foods',
-                element:<ManageFoods></ManageFoods>
+                path: 'manage-foods',
+                element: <ManageFoods></ManageFoods>
             },
             {
-                path:'food-request',
-                element:<FoodRequest></FoodRequest>
+                path: 'food-request',
+                element: <FoodRequest></FoodRequest>
+            },
+            {
+                path: 'food/edit/:id',
+                element: <FoodEdit></FoodEdit>
+            },
+            {
+                path: 'foods/status/:id',
+                element: <ManageFoodStatus></ManageFoodStatus>
             }
         ]
     }

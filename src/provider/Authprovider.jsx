@@ -45,12 +45,6 @@ const Authprovider = ({ children }) => {
     }, [])
 
 
-    console.log(user)
-
-
-
-
-
     const allInfo = {
         user,
         setUser,

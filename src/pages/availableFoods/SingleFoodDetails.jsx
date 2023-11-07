@@ -44,8 +44,11 @@ const SingleFoodDetails = () => {
         const request_date = form.request_date.value || "Unknown";
         const pickup_location = form.pickup_location.value || "Unknown";
         const expired_time = form.expired_time.value || "Unknown";
+        const food_status = form.food_status.value || "Unknown";
         const donation_money = form.donation_money.value || 0;
         const requester_additional_notes = form.requester_additional_notes.value || "Unknown";
+        const requester_name = user?.displayName || "Unknown";
+        const requester_image = user?.photoURL || "https://i.ibb.co/k2mWfq6/placeholder.jpg";
 
         const RequestedFood = {
             food_name,
@@ -57,8 +60,12 @@ const SingleFoodDetails = () => {
             request_date,
             pickup_location,
             expired_time,
+            food_status,
             requester_additional_notes,
             donation_money,
+            requester_name,
+            requester_image
+
         }
 
         axiosSecure.post('/user-add-requested-foods', RequestedFood)
@@ -258,6 +265,24 @@ const SingleFoodDetails = () => {
                                             name="expired_time"
                                             id="expired_time"
                                             defaultValue={foodExpireTime}
+                                            readOnly
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="sm:col-span-2">
+                                        <label
+                                            htmlFor="food_status"
+                                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Food Status
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="food_status"
+                                            id="food_status"
+                                            defaultValue={food?.food_status}
                                             readOnly
                                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                             required

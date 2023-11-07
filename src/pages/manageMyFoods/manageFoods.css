@@ -1,0 +1,57 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border:2px solid #F9FAFB;
+    box-shadow: 0 0 5px #F9FAFB;
+}
+table:hover {
+    box-shadow: 0 0 10px #F9FAFB;
+}
+
+th,
+td {
+    padding: 15px 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000000;
+}
+
+th {
+    text-align: left;
+}
+
+thead th {
+    background-color: #F9FAFB;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+tbody td {
+    position: relative;
+}
+
+tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}
+tr:hover td h1{
+    color: #FA2371;
+    text-decoration: underline;
+}
+
+
+/* Popup Swl button style  */
+.swal-button--confirm{
+    background-color: #FA2371;
+}
+.swal-button--confirm:hover{
+    background-color: #FA2371!important;
+}
