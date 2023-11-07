@@ -12,6 +12,7 @@ import DashboardContent from "../pages/dashboard/DashboardContent";
 import MainLayout from "../layout/MainLayout";
 import DashboardLayOut from "../layout/DashboardLayOut";
 import SingleFoodDetails from "../pages/availableFoods/SingleFoodDetails";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 const routes = createBrowserRouter([
     {
@@ -32,21 +33,21 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <Login></Login>
+                element: <Login></Login> 
             },
             {
                 path: '/register',
-                element: <Register></Register>
+                element: <Register></Register> 
             },
             {
                 path: '/available-food/:id',
-                element:<SingleFoodDetails></SingleFoodDetails>
+                element: <PrivateRoute> <SingleFoodDetails></SingleFoodDetails> </PrivateRoute>
             }
         ]
     },
     {
         path: '/dashboard',
-        element: <DashboardLayOut></DashboardLayOut>,
+        element: <PrivateRoute> <DashboardLayOut></DashboardLayOut> </PrivateRoute>,
         children:[
             {
                 path:'',

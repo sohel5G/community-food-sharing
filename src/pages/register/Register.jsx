@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from 'react-icons/fa';
 import { useContext } from "react";
 import { AllContext } from "../../provider/Authprovider";
+import swal from "sweetalert";
 
 const Register = () => {
-
     const { registerUser, userUpdateOnSignUp, setUser, googleSignInWithPopup } = useContext(AllContext);
+    const navigate = useNavigate()
 
     const handleRegisterUser = event => {
         event.preventDefault();
@@ -19,20 +20,37 @@ const Register = () => {
             .then((succData) => {
                 const user = succData.user;
 
-                userUpdateOnSignUp({ displayName: name, photoURL: photo_url })
+                userUpdateOnSignUp({ displayName: name, photoURL: photo_url, email: email })
                     .then(() => {
 
                         setUser({ displayName: name, photoURL: photo_url, email: email });
                         console.log('profile data set')
+                        
+                        swal({
+                            text: "Registration Success",
+                            icon: "success",
+                            buttons: false,
+                        })
+                        
+                        navigate('/dashboard/profile');
 
                     }).catch((error) => {
                         console.log('profile data not set', error)
                     });
 
                 console.log('SignUp Use', user)
+
+                
             })
             .catch((errorData) => {
                 const error = errorData.message;
+
+                swal({
+                    text: errorData.message,
+                    icon: "warning",
+                    buttons: false,
+                })
+
                 console.log('SignUp error', error)
             });
 
@@ -45,9 +63,22 @@ const Register = () => {
                 const user = succData.user;
                 console.log(user)
 
+                swal({
+                    text: "Registration Success",
+                    icon: "success",
+                    buttons: false,
+                })
+                navigate('/dashboard/profile');
+
             }).catch((errorData) => {
                 const error = errorData.message;
                 console.log(error)
+
+                swal({
+                    text: errorData.message,
+                    icon: "warning",
+                    buttons: false,
+                })
             });
     }
 

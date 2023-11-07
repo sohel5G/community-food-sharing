@@ -1,11 +1,13 @@
 
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AllContext } from '../../provider/Authprovider';
 import { useContext } from 'react';
+import swal from 'sweetalert';
 
 const Login = () => {
     const { googleSignInWithPopup, userLogIn } = useContext(AllContext);
+    const navigate = useNavigate()
 
     const handleUserLogin = event => {
         event.preventDefault();
@@ -17,9 +19,24 @@ const Login = () => {
             .then((succData) => {
                 const user = succData.user;
                 console.log(user)
+
+                swal({
+                    text: "Successfully Log In",
+                    icon: "success",
+                    buttons: false,
+                })
+                navigate('/dashboard/profile');
+                
             })
             .catch((errorData) => {
                 const error = errorData.message;
+
+                swal({
+                    text: errorData.message,
+                    icon: "warning",
+                    buttons: false,
+                })
+
                 console.log('login error', error)
             });
     }
@@ -30,8 +47,22 @@ const Login = () => {
                 const user = succData.user;
                 console.log(user)
 
+                swal({
+                    text: "Successfully Log In",
+                    icon: "success",
+                    buttons: false,
+                })
+                navigate('/dashboard/profile');
+
             }).catch((errorData) => {
                 const error = errorData.message;
+                
+                swal({
+                    text: errorData.message,
+                    icon: "warning",
+                    buttons: false,
+                })
+
                 console.log(error)
             });
     }
