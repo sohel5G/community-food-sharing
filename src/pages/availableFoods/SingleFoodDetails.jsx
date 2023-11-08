@@ -89,17 +89,17 @@ const SingleFoodDetails = () => {
             <Helmet><title>Single Food - Community Food Sharing </title></Helmet>
             <section className="container mx-auto px-4 py-5">
                 <div className="mx-auto p-10 max-w-3xl shadow hover:shadow-md border my-6 rounded-md">
-                    <h1 className="text-3xl">Donor Information</h1>
-                    <img className="py-3 w-20 rounded-2xl" src={food?.donator_image} alt={food?.donator_name} />
-                    <p className="text-lg py-1"> <span className="font-medium"> Donar Name:  </span> {food?.donator_name}</p>
-                    <p className="text-lg py-1"> <span className="font-medium"> Food Pickup Location:  </span> {food?.pickup_location}</p>
+                    <h1 className="text-3xl dark:text-white">Donor Information</h1>
+                    <img className="py-3 w-20 rounded-2xl dark:text-white" src={food?.donator_image} alt={food?.donator_name} />
+                    <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Donar Name:  </span> {food?.donator_name}</p>
+                    <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Food Pickup Location:  </span> {food?.pickup_location}</p>
                 </div>
                 <div className="mx-auto p-3 pb-8 max-w-3xl shadow hover:shadow-md border my-6 rounded-md">
-                    <img className="pb-3 rounded-xl w-full" src={food?.food_image} alt={food?.donator_name} />
-                    <h1 className="text-2xl font-medium py-4">{food?.food_name}</h1>
-                    <p className="text-lg py-1"> <span className="font-medium"> Food Quantity (no. of person to be served.):  </span> {food?.food_quantity}</p>
-                    <p className="text-lg py-1"> <span className="font-medium"> Expired Time:  </span> {food?.expired_time}</p>
-                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-primary-defaultPrimaryColor text-white py-2 px-3 text-sm font-medium rounded-md mt-3">Request for this food</button>
+                    <img className="pb-3 rounded-xl w-full dark:text-white" src={food?.food_image} alt={food?.donator_name} />
+                    <h1 className="text-2xl font-medium py-4 dark:text-white">{food?.food_name}</h1>
+                    <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Food Quantity (no. of person to be served.):  </span> {food?.food_quantity}</p>
+                    <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Expired Time:  </span> {food?.expired_time}</p>
+                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-primary-defaultPrimaryColor text-white py-2 px-3 text-sm font-medium rounded-md mt-3 dark:text-white">Request for this food</button>
                 </div>
 
                 <dialog id="my_modal_3" className="modal">
