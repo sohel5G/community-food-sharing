@@ -69,7 +69,7 @@ const ManageFoods = () => {
             {
                 Header: "Food Name",
                 accessor: (row) => (
-                    <h1><Link to={`/available-food/${row._id}`}> {row.food_name} </Link></h1>
+                    <h1 className=" dark:text-white"><Link to={`/available-food/${row._id}`}> {row.food_name} </Link></h1>
                 ),
             },
             {
@@ -82,13 +82,13 @@ const ManageFoods = () => {
             {
                 Header: "Edit",
                 accessor: (row) => (
-                    <Link to={`/dashboard/food/edit/${row._id}`}>Edit</Link>
+                    <Link className=" dark:text-white" to={`/dashboard/food/edit/${row._id}`}>Edit</Link>
                 ),
             },
             {
                 Header: "Manage",
                 accessor: (row) => (
-                    <Link to={`/dashboard/foods/status/${row._id}`}>Manage</Link>
+                    <Link className=" dark:text-white" to={`/dashboard/foods/status/${row._id}`}>Manage</Link>
                 ),
             },
             {
@@ -106,8 +106,8 @@ const ManageFoods = () => {
     return (
         <>
             <Helmet><title>Manage Food - Community Food Sharing </title></Helmet>
-            <div>
-                <h2 className="text-center text-3xl pb-20"> My Donated Food {foods?.length} </h2>
+            <div className="mt-8">
+                <h2 className="text-center text-3xl pb-7 dark:text-white"> My Donated Food {foods?.length} </h2>
             </div>
             <div className="App">
                 <div className="container">

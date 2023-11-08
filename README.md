@@ -10,5 +10,5 @@
 - Home page only showing features foods 
 - if food delivered then it will not show on the available food page
 
-[Website Live link > https://food-sharing-apps.web.app/](https://food-sharing-apps.web.app/)
+[Website Live link > ](https://food-sharing-apps.web.app/)
 

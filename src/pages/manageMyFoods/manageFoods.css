@@ -43,7 +43,7 @@ tbody td:hover:before {
     z-index: -1;
 }
 tr:hover td h1{
-    color: #FA2371;
+    color: #FA2371!important;
     text-decoration: underline;
 }
 

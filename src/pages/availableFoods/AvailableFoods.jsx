@@ -122,7 +122,7 @@ const AvailableFoods = () => {
             <section>
                 <form>
                     <select
-                        className="select select-bordered w-full max-w-xs"
+                        className="select select-bordered w-full max-w-xs dark:text-white dark:bg-gray-600"
                         name="filterText"
                         onChange={(e) => setFilterText(e.target.value)}
                     >

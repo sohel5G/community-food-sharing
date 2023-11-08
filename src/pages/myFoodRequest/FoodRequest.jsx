@@ -55,7 +55,7 @@ const FoodRequest = () => {
     return (
         <div className="px-5 lg:px-1">
             <Helmet><title> Food Request - Community Food Sharing </title></Helmet>
-            <h1 className='text-3xl text-center pt-2 pb-10'>My Food Request {foods?.length}</h1>
+            <h1 className='text-3xl text-center pt-2 pb-10 dark:text-white'>My Food Request {foods?.length}</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {
                     foods?.map(food => <FoodRequestCard key={food._id} food={food} handleDelete={handleDelete}></FoodRequestCard>)
