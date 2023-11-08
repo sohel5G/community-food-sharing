@@ -104,7 +104,9 @@ const ManageFoods = () => {
 
     return (
         <>
-
+            <div>
+                <h2 className="text-center text-3xl pb-20"> My Donated Food {foods?.length} </h2>
+            </div>
             <div className="App">
                 <div className="container">
                     <table className="" {...getTableProps()}>

@@ -16,7 +16,14 @@ const FoodRequestCard = ({ food, handleDelete }) => {
                 <p className='py-1'><b>Request Date :</b> {request_date} </p>
                 <p className='py-1'><b>Your Donation Amount :</b> {donation_money} </p>
                 <p className='py-1'><b>Food Status :</b> <span className={food_status === "Available" ? "text-green-500" : "text-orange-500"}>{food_status}</span> </p>
-                <button className='text-primary-defaultPrimaryColor underline mt-6' onClick={() => handleDelete(_id)}>Cancel this Request</button>
+                {
+                food_status === "Available" ? <>
+                    <button className='text-primary-defaultPrimaryColor underline mt-6' onClick={() => handleDelete(_id)}>Cancel this Request</button>
+                </> : <>
+                <p></p>
+                </>
+                }
+                
             </div>
         </div>
     );

@@ -28,13 +28,15 @@ const ManageFoodStatus = () => {
 
         axiosSecure.patch(`/update-request-and-donate-food-status?donatedFoodId=${id}`, UpdatedStatus)
             .then(res => {
-                if (res.data.modifiedCount > 0) {
+                if (res.data.donateCollectionResult.modifiedCount > 0 || res.data.requestCollectionResult.modifiedCount > 0) {
                     swal({
                         text: "Food Status updated successfully",
                         icon: "success",
                         buttons: false,
                     })
                 }
+
+                console.log(res.data)
             })
     }
 

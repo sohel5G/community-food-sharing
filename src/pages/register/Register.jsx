@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from 'react-icons/fa';
 import { useContext } from "react";
@@ -15,6 +16,43 @@ const Register = () => {
         const email = form.email.value;
         const photo_url = form.photo_url.value;
         const password = form.password.value;
+        const confirm_pass = form.confirm_pass.value;
+        const terms = form.terms.checked;
+
+        
+        if (password.length < 6) {
+            return swal({
+                text: "Password must be 6 characters or more!",
+                icon: "warning",
+                buttons: false,
+            })
+        } else if (password !== confirm_pass){
+            return swal({
+                text: "Password not match, Please double check!",
+                icon: "warning",
+                buttons: false,
+            })
+        } else if (!/[A-Z]/.test(password)) {
+            return swal({
+                text: "Password must be at least one capital letter!",
+                icon: "warning",
+                buttons: false,
+            })
+        } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\]/.test(password)) {
+            return swal({
+                text: "Password must be at least one special character!",
+                icon: "warning",
+                buttons: false,
+            })
+        } else if (!terms === true) {
+            return swal({
+                text: "Please accept the term & conditions",
+                icon: "warning",
+                buttons: false,
+            })
+        }
+
+
 
         registerUser(email, password)
             .then((succData) => {
@@ -25,13 +63,13 @@ const Register = () => {
 
                         setUser({ displayName: name, photoURL: photo_url, email: email });
                         console.log('profile data set')
-                        
+
                         swal({
                             text: "Registration Success",
                             icon: "success",
                             buttons: false,
                         })
-                        
+
                         navigate('/dashboard/profile');
 
                     }).catch((error) => {
@@ -40,7 +78,7 @@ const Register = () => {
 
                 console.log('SignUp Use', user)
 
-                
+
             })
             .catch((errorData) => {
                 const error = errorData.message;
@@ -157,15 +195,15 @@ const Register = () => {
                         </div>
                         <div>
                             <label
-                                htmlFor="confirm-password"
+                                htmlFor="confirm_pass"
                                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                             >
                                 Confirm password
                             </label>
                             <input
-                                type="confirm-password"
-                                name="confirm-password"
-                                id="confirm-password"
+                                type="text"
+                                name="confirm_pass"
+                                id="confirm_pass"
                                 placeholder="••••••••"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required
@@ -175,6 +213,7 @@ const Register = () => {
                             <div className="flex items-center h-5">
                                 <input
                                     id="terms"
+                                    name="terms"
                                     aria-describedby="terms"
                                     type="checkbox"
                                     className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
