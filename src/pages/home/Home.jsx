@@ -3,6 +3,7 @@ import Slider from "../../components/Slider";
 import FeatureFoods from "./FeatureFoods";
 import front_page_bottom from "../../assets/home/Front page Bottom .jpg"
 import "./home.css"
+import donateimg from "../../assets/home/donationimg.jpg"
 
 const Home = () => {
 
@@ -22,6 +23,18 @@ const Home = () => {
                 </div>
                 <div className="py-16 text-center">
                     <Link to={'/available-foods'}> <button className="bg-primary-defaultPrimaryColor text-white py-2 px-3 text-sm font-medium rounded-md">  Show All Foods </button> </Link>
+                </div>
+            </section>
+            <section className="container mx-auto px-3 pt-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-16 items-center py-20">
+                    <div>
+                        <img className="w-full" src={donateimg} alt="Donate Image" />
+                    </div>
+                    <div className="mt-10 lg:mt-0">
+                        <h1 className="text-center lg:text-left text-4xl font-medium pb-5 dark:text-white"> Our Mission </h1>
+                        <div className="h-[2px] w-[100px] bg-primary-300 mx-auto lg:mx-0"></div>
+                        <p className="text-center lg:text-left  text-xl dark:text-white py-5"> To provide our neighbours with access to healthy food by: Promoting the benefits of nutrition; building community partnerships; and supporting our clients through a variety of life challenges. </p>
+                    </div>
                 </div>
             </section>
             <section className="container mx-auto px-4">
