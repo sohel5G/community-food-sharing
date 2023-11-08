@@ -1,8 +1,14 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Some features of this website 
+- Add new food
+- Login
+- register 
+- update food status 
+- delete donated food
+- request for food
+- can not cancel food request if donner mark it as delivered 
+- Home page only showing features foods 
+- if food delivered then it will not show on the available food page
 
-Currently, two official plugins are available:
+[Website Live link > https://food-sharing-apps.web.app/](https://food-sharing-apps.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
