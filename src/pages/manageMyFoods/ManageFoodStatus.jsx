@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet-async";
 
 const ManageFoodStatus = () => {
     const [food, setFood] = useState({});
@@ -42,6 +43,7 @@ const ManageFoodStatus = () => {
 
     return (
         <>
+            <Helmet><title>Update Food Status - Community Food Sharing </title></Helmet>
             <section className="py-8">
                 <div className="pt-4 pb-8 rounded-md px-4 mx-auto max-w-2xl dark:border dark:border-gray-700 shadow">
                     <h2 className="mb-3 text-4xl font-medium text-gray-900 dark:text-white">

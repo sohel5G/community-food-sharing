@@ -1,7 +1,9 @@
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
     return (
         <>
+            <Helmet><title>Contact - Community Food Sharing </title></Helmet>
             <section className="bg-white dark:bg-gray-900 mt-24">
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                     <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">

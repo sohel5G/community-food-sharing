@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AllContext } from "../../provider/Authprovider";
 import swal from 'sweetalert';
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddFood = () => {
     const {user} = useContext(AllContext)
@@ -54,6 +55,7 @@ const AddFood = () => {
 
     return (
         <>
+            <Helmet><title>Add Food - Community Food Sharing </title></Helmet>
             <section className="py-8">
                 <div className="pt-4 pb-8 rounded-md px-4 mx-auto max-w-2xl dark:border dark:border-gray-700 shadow">
                     <h2 className="mb-12 text-4xl font-medium text-gray-900 dark:text-white">

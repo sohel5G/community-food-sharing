@@ -8,6 +8,7 @@ import { useTable } from "react-table";
 import "./manageFoods.css"
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet-async";
 
 const ManageFoods = () => {
     const axiosSecure = useAxiosSecure();
@@ -104,6 +105,7 @@ const ManageFoods = () => {
 
     return (
         <>
+            <Helmet><title>Manage Food - Community Food Sharing </title></Helmet>
             <div>
                 <h2 className="text-center text-3xl pb-20"> My Donated Food {foods?.length} </h2>
             </div>

@@ -3,6 +3,7 @@ import { AllContext } from "../../provider/Authprovider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import FoodRequestCard from "./FoodRequestCard";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet-async";
 
 const FoodRequest = () => {
     const axiosSecure = useAxiosSecure();
@@ -53,6 +54,7 @@ const FoodRequest = () => {
 
     return (
         <div className="px-5 lg:px-1">
+            <Helmet><title> Food Request - Community Food Sharing </title></Helmet>
             <h1 className='text-3xl text-center pt-2 pb-10'>My Food Request {foods?.length}</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {

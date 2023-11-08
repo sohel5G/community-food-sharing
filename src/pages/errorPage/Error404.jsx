@@ -1,12 +1,14 @@
 import Lottie from "lottie-react";
 import errorPage404animation from "../../assets/animation/animation_404.json"
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Error404 = () => {
 
 
     return (
         <div>
+            <Helmet><title> Error - Community Food Sharing </title></Helmet>
             <div className="max-w-3xl mx-auto px-7 h-screen flex justify-center items-center">
                 <div>
                     <div>

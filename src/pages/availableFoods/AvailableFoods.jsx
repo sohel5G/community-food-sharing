@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import AvailableFoodCard from "./AvailableFoodCard";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AvailableFoods = () => {
     const [foods, setFoods] = useState([])
     const axiosSecure = useAxiosSecure()
     const [searchText, setSearchText] = useState('');
     const [filtertext, setFilterText] = useState('');
+    const [availableFoods, setavAilableFoods] = useState([])
 
     const handleSearch = e => {
         e.preventDefault()
@@ -43,13 +45,31 @@ const AvailableFoods = () => {
                     setFoods(res.data)
                 })
         }
-        
+        else {
+            axiosSecure.get('/get-donated-foods')
+                .then(res => {
+                    setFoods(res.data)
+                })
+
+        }
+
     }, [filtertext]);
 
 
 
+  useEffect(() =>{
+      if (foods.length > 0) {
+          const availableFoods = foods.filter(food => food.food_status === 'Available')
+          setavAilableFoods(availableFoods)
+      }
+
+  }, [foods])
+   
+
+
     return (
         <div className="container mx-auto px-5 pb-24">
+            <Helmet><title>Available Foods - Community Food Sharing </title></Helmet>
             <section>
                 <div className="py-11">
                     <form onSubmit={handleSearch}>
@@ -131,7 +151,8 @@ const AvailableFoods = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-9">
                                 {
-                                    foods.map(food => <AvailableFoodCard key={food._id} food={food}></AvailableFoodCard>)
+                                    
+                                    availableFoods.map(food => <AvailableFoodCard key={food._id} food={food}></AvailableFoodCard>)
                                 }
                             </div>
 

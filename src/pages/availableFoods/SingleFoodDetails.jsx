@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AllContext } from "../../provider/Authprovider";
 import swal from 'sweetalert';
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const SingleFoodDetails = () => {
     const axiosSecure = useAxiosSecure()
@@ -85,6 +86,7 @@ const SingleFoodDetails = () => {
 
     return (
         <>
+            <Helmet><title>Single Food - Community Food Sharing </title></Helmet>
             <section className="container mx-auto px-4 py-5">
                 <div className="mx-auto p-10 max-w-3xl shadow hover:shadow-md border my-6 rounded-md">
                     <h1 className="text-3xl">Donor Information</h1>

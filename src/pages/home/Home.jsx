@@ -4,11 +4,13 @@ import FeatureFoods from "./FeatureFoods";
 import front_page_bottom from "../../assets/home/Front page Bottom .jpg"
 import "./home.css"
 import donateimg from "../../assets/home/donationimg.jpg"
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
 
     return (
         <>
+            <Helmet><title>Home - Community Food Sharing </title></Helmet>
             <section className="container mx-auto">
                 <Slider></Slider>
             </section>

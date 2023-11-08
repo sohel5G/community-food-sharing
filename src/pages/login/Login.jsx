@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AllContext } from '../../provider/Authprovider';
 import { useContext } from 'react';
 import swal from 'sweetalert';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const { googleSignInWithPopup, userLogIn } = useContext(AllContext);
@@ -70,6 +71,7 @@ const Login = () => {
 
     return (
         <>
+            <Helmet><title> logIn - Community Food Sharing </title></Helmet>
             <div className="flex justify-center items-center py-28">
 
                 <div className="flex-1 max-w-md bg-white rounded-lg shadow dark:border dark:bg-gray-600 dark:border-gray-700">
