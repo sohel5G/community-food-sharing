@@ -14,17 +14,17 @@ const FoodEdit = () => {
     const [getFoodExpiredTime, setGetFoodExpiredTime] = useState(36);
 
     useEffect(() => {
-        if (food.expired_time){
+        if (food.expired_time) {
             setGetFoodExpiredTime(parseInt(food.expired_time));
         }
     }, [food.expired_time])
 
     useEffect(() => {
-        axiosSecure.get(`/get-donated-foods?productId=${id}`)
+        axiosSecure.get(`/get-donated-foods-on-single-page?productId=${id}&verifyUserEmail=${user?.email}`)
             .then(res => {
                 setFood(res.data)
             })
-    }, [id, axiosSecure])
+    }, [id, axiosSecure, user?.email])
 
 
     const handleUpdateFood = (e) => {
@@ -40,7 +40,7 @@ const FoodEdit = () => {
         const donator_image = user?.photoURL || "https://i.ibb.co/k2mWfq6/placeholder.jpg";
         const donator_name = user?.displayName || "Unknown";
         const donator_email = user?.email || "Unknown";
-        const food_status = "Available"
+        // const food_status = "Available"
 
         const UpdatedFood = {
             food_name,
@@ -52,10 +52,10 @@ const FoodEdit = () => {
             donator_image,
             donator_name,
             donator_email,
-            food_status
+            // food_status
         }
 
-        axiosSecure.put(`/donner-edit-foods/${id}`, UpdatedFood)
+        axiosSecure.put(`/donner-edit-foods/${id}?verifyUserEmail=${user?.email}`, UpdatedFood)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     swal({

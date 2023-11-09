@@ -143,7 +143,7 @@ const AvailableFoods = () => {
             </section>
             <section>
                 {
-                    foods.length === 0 ?
+                    availableFoods.length === 0 ?
                         <>
                             <h1 className="text-4xl font-medium text-center dark:text-white"> No Foods found</h1>
                         </> :

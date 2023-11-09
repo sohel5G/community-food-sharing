@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 import swal from "sweetalert";
 import { Helmet } from "react-helmet-async";
+import { AllContext } from "../../provider/Authprovider";
 
 const ManageFoodStatus = () => {
     const [food, setFood] = useState({});
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
+    const { user } = useContext(AllContext);
 
     useEffect(() => {
-        axiosSecure.get(`/get-requested-food-by-donator-food-id?donatorFoodId=${id}`)
+        axiosSecure.get(`/get-a-requested-food-by-donator?donatorFoodId=${id}&verifyUserEmail=${user?.email}`)
             .then(res => {
                 setFood(res.data)
             })
-    }, [id, axiosSecure])
+    }, [id, axiosSecure, user?.email])
 
     const { requester_name, requester_image, request_date, food_requester_email } = food;
 
@@ -27,7 +29,7 @@ const ManageFoodStatus = () => {
             food_status
         }
 
-        axiosSecure.patch(`/update-request-and-donate-food-status?donatedFoodId=${id}`, UpdatedStatus)
+        axiosSecure.patch(`/update-request-and-donate-food-status?donatedFoodId=${id}&verifyUserEmail=${user?.email}`, UpdatedStatus)
             .then(res => {
                 if (res.data.donateCollectionResult.modifiedCount > 0 || res.data.requestCollectionResult.modifiedCount > 0) {
                     swal({

@@ -39,7 +39,7 @@ const AddFood = () => {
 
         
 
-        axiosSecure.post('/donner-add-foods', newFood)
+        axiosSecure.post(`/donner-add-foods?verifyUserEmail=${user?.email}`, newFood)
         .then(res => {
             if (res.data.insertedId ){
                 swal({

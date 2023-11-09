@@ -16,7 +16,7 @@ const ManageFoods = () => {
     const { user } = useContext(AllContext);
 
     useEffect(() => {
-        axiosSecure.get(`/get-donated-foods?userEmail=${user?.email}`)
+        axiosSecure.get(`/get-donated-foods-on-manage-my-food?userEmail=${user?.email}`)
             .then(res => {
                 setFoods(res.data)
             })
@@ -34,11 +34,11 @@ const ManageFoods = () => {
         }).then((willDelete) => {
             if (willDelete) {
 
-                axiosSecure.delete(`/user-donated-food-delete?donatedFoodId=${foodId}`)
+                axiosSecure.delete(`/user-donated-food-delete?donatedFoodId=${foodId}&verifyUserEmail=${user?.email}`)
                     .then(res => {
 
                         if (res.data.deletedCount > 0) {
-                            axiosSecure.get(`/get-donated-foods?userEmail=${user?.email}`)
+                            axiosSecure.get(`/get-donated-foods-on-manage-my-food?userEmail=${user?.email}`)
                                 .then(res => {
                                     setFoods(res.data)
                                 })
@@ -51,7 +51,7 @@ const ManageFoods = () => {
                         }
                     })
 
-                axiosSecure.delete(`/user-requested-food-delete?requestedFoodId=${foodId}`)
+                axiosSecure.delete(`/user-requested-food-delete-by-donar?requestedFoodId=${foodId}&verifyUserEmail=${user?.email}`)
                     .then(res => {
                         res.data
                     })
@@ -109,7 +109,7 @@ const ManageFoods = () => {
             <div className="mt-8">
                 <h2 className="text-center text-3xl pb-7 dark:text-white"> My Donated Food {foods?.length} </h2>
             </div>
-            <div className="App">
+            <div className="App pb-10 px-3">
                 <div className="container">
                     <table className="" {...getTableProps()}>
                         <thead>

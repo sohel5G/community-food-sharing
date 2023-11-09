@@ -24,11 +24,11 @@ const SingleFoodDetails = () => {
     }, [food.expired_time])
 
     useEffect(() => {
-        axiosSecure.get(`/get-donated-foods?productId=${id}`)
+        axiosSecure.get(`/get-donated-foods-on-single-page?productId=${id}&verifyUserEmail=${user?.email}`)
             .then(res => {
                 setFood(res.data)
             })
-    }, [id, axiosSecure])
+    }, [id, axiosSecure, user?.email])
 
 
     const handleFoodRequest = e => {
@@ -69,7 +69,7 @@ const SingleFoodDetails = () => {
 
         }
 
-        axiosSecure.post('/user-add-requested-foods', RequestedFood)
+        axiosSecure.post(`/user-add-requested-foods?verifyUserEmail=${user?.email}`, RequestedFood)
             .then(res => {
                 if (res.data.insertedId) {
                     setFoodAddedSuccessPopUp(res.data.insertedId)
@@ -84,7 +84,6 @@ const SingleFoodDetails = () => {
 
     }
 
-    console.log(food.food_status)
 
     return (
         <>
@@ -102,11 +101,11 @@ const SingleFoodDetails = () => {
                     <h1 className="text-2xl font-medium py-4 dark:text-white">{food?.food_name}</h1>
                     <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Food Quantity (no. of person to be served.):  </span> {food?.food_quantity}</p>
                     <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Expired Time:  </span> {food?.expired_time}</p>
-                    
+
                     {
                         food.food_status === "Available" ?
                             <button onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-primary-defaultPrimaryColor text-white py-2 px-3 text-sm font-medium rounded-md mt-3 dark:text-white">Request for this food</button> :
-                            <button 
+                            <button
                                 onClick={() => swal({
                                     text: "This food is already delivered",
                                     icon: "warning",
@@ -114,7 +113,7 @@ const SingleFoodDetails = () => {
                                 })}
                                 className="bg-[#00000061] text-white py-2 px-3 text-sm font-medium rounded-md mt-3 dark:text-white">
                                 Request for this food
-                             </button>
+                            </button>
                     }
 
                 </div>
@@ -340,9 +339,9 @@ const SingleFoodDetails = () => {
                                     </div>
 
                                 </div>
-                                
+
                                 <div className="flex gap-4 items-center">
-                                    
+
                                     {
                                         food.food_status === "Available" ?
                                             <input
@@ -366,7 +365,7 @@ const SingleFoodDetails = () => {
                                     }
                                 </div>
                             </form>
-                            
+
                         </div>
                     </div>
                 </dialog>

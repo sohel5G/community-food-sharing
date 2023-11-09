@@ -29,7 +29,7 @@ const FoodRequest = () => {
         }).then((willDelete) => {
             if (willDelete) {
 
-                axiosSecure.delete(`/user-request-delete?requestedFoodId=${foodId}`)
+                axiosSecure.delete(`/user-request-delete?requestedFoodId=${foodId}&verifyUserEmail=${user?.email}`)
                     .then(res => {
 
                         if (res.data.deletedCount > 0) {
