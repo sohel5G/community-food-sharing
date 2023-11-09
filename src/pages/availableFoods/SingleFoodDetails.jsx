@@ -84,6 +84,8 @@ const SingleFoodDetails = () => {
 
     }
 
+    console.log(food.food_status)
+
     return (
         <>
             <Helmet><title>Single Food - Community Food Sharing </title></Helmet>
@@ -93,13 +95,28 @@ const SingleFoodDetails = () => {
                     <img className="py-3 w-20 rounded-2xl dark:text-white" src={food?.donator_image} alt={food?.donator_name} />
                     <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Donar Name:  </span> {food?.donator_name}</p>
                     <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Food Pickup Location:  </span> {food?.pickup_location}</p>
+                    <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Food Status:  </span> <span className={food.food_status === "Available" ? "text-green-500" : "text-orange-500"}>{food?.food_status}</span> </p>
                 </div>
                 <div className="mx-auto p-3 pb-8 max-w-3xl shadow hover:shadow-md border my-6 rounded-md">
                     <img className="pb-3 rounded-xl w-full dark:text-white" src={food?.food_image} alt={food?.donator_name} />
                     <h1 className="text-2xl font-medium py-4 dark:text-white">{food?.food_name}</h1>
                     <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Food Quantity (no. of person to be served.):  </span> {food?.food_quantity}</p>
                     <p className="text-lg py-1 dark:text-white"> <span className="font-medium"> Expired Time:  </span> {food?.expired_time}</p>
-                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-primary-defaultPrimaryColor text-white py-2 px-3 text-sm font-medium rounded-md mt-3 dark:text-white">Request for this food</button>
+                    
+                    {
+                        food.food_status === "Available" ?
+                            <button onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-primary-defaultPrimaryColor text-white py-2 px-3 text-sm font-medium rounded-md mt-3 dark:text-white">Request for this food</button> :
+                            <button 
+                                onClick={() => swal({
+                                    text: "This food is already delivered",
+                                    icon: "warning",
+                                    buttons: false,
+                                })}
+                                className="bg-[#00000061] text-white py-2 px-3 text-sm font-medium rounded-md mt-3 dark:text-white">
+                                Request for this food
+                             </button>
+                    }
+
                 </div>
 
                 <dialog id="my_modal_3" className="modal">
@@ -325,11 +342,25 @@ const SingleFoodDetails = () => {
                                 </div>
                                 
                                 <div className="flex gap-4 items-center">
-                                    <input
-                                        type="submit"
-                                        value="Submit"
-                                        className="cursor-pointer inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                                    />
+                                    
+                                    {
+                                        food.food_status === "Available" ?
+                                            <input
+                                                type="submit"
+                                                value="Submit"
+                                                className="cursor-pointer inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+                                            /> :
+                                            <button
+                                                onClick={() => swal({
+                                                    text: "This food is already delivered",
+                                                    icon: "warning",
+                                                    buttons: false,
+                                                })}
+                                                className="bg-[#00000061] text-white py-2 px-3 text-sm font-medium rounded-md mt-3 dark:text-white">
+                                                Submit
+                                            </button>
+                                    }
+
                                     {
                                         foodAddedSuccessPopUp ? <p className="text-base text-green-500 py-3 mt-6">Food request send successfully </p> : ''
                                     }

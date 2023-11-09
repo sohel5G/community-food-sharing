@@ -158,12 +158,20 @@ const DashboardLayOut = () => {
                     
 
 
+
+
+
+
+
+
+
+
                     <div className="dark:bg-gray-600">
                         <section className="dark:bg-gradient-to-b dark:from-gray-700 dark:to-gray-600">
 
                             <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-3">
                                 <div className="bg-gray-50 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-700">
-                                    <aside className="flex items-center lg:min-h-[80vh]">
+                                    <aside className="flex items-center lg:min-h-[80vh] pl-5 lg:pl-0">
                                         <div className="flex-1 px-3 py-4">
                                             <ul className="space-y-2 font-medium dashboard-navigation">
                                                 <li>
@@ -271,6 +279,17 @@ const DashboardLayOut = () => {
                             <Footer></Footer>
                         </section>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

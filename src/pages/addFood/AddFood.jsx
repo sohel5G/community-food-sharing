@@ -56,9 +56,9 @@ const AddFood = () => {
     return (
         <>
             <Helmet><title>Add Food - Community Food Sharing </title></Helmet>
-            <section className="py-8">
-                <div className="pt-4 pb-8 rounded-md px-4 mx-auto max-w-2xl dark:border dark:border-gray-700 shadow">
-                    <h2 className="mb-12 text-4xl font-medium text-gray-900 dark:text-white">
+            <section className="py-8 px-5">
+                <div className="pb-8 rounded-md px-4 mx-auto max-w-2xl dark:border dark:border-gray-700 shadow">
+                    <h2 className="mb-12 text-3xl font-medium text-gray-900 dark:text-white">
                         Add A New Food
                     </h2>
                     <form onSubmit={handleAddNewFood}>

@@ -5,6 +5,8 @@ import { AllContext } from '../../provider/Authprovider';
 import { useContext } from 'react';
 import swal from 'sweetalert';
 import { Helmet } from 'react-helmet-async';
+import Lottie from 'lottie-react';
+import loginAnimation from "../../assets/animation/Login_animation.json"
 
 const Login = () => {
     const { googleSignInWithPopup, userLogIn } = useContext(AllContext);
@@ -72,9 +74,11 @@ const Login = () => {
     return (
         <>
             <Helmet><title> logIn - Community Food Sharing </title></Helmet>
-            <div className="flex justify-center items-center py-28">
-
-                <div className="flex-1 max-w-md bg-white rounded-lg shadow dark:border dark:bg-gray-600 dark:border-gray-700">
+            <div className="flex justify-center items-center px-4 py-10 lg:py-20 gap-0 lg:gap-10 flex-col lg:flex-row">
+                <div className='hidden lg:block'>
+                    <Lottie animationData={loginAnimation} repeat="false"></Lottie>
+                </div>
+                <div className="flex-1 max-w-md min-w-full md:min-w-max bg-white rounded-lg shadow dark:border dark:bg-gray-600 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-lg pb-8 font-semibold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Sign in to your account

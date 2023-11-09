@@ -16,7 +16,7 @@ const Profile = () => {
     }
 
     return (
-        <div className="flex justify-center items-center py-8">
+        <div className="flex justify-center items-center py-8 px-5">
             <Helmet><title> Profile - Community Food Sharing </title></Helmet>
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-600 dark:border-gray-700">
                 <div className="flex flex-col items-center py-10">

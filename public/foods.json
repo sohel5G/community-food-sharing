@@ -2,8 +2,6 @@
     {
         "food_image": "https://i.ibb.co/wsNpmkg/Large-Vegetable-Lasagna.png",
         "food_name": "Large Vegetable Lasagna",
-        "donator_image": "https://i.ibb.co/FzKk5WG/1.jpg",
-        "donator_name": "John Smith",
         "food_quantity": "10",
         "pickup_location": "Community Center",
         "expired_time": "48h",
@@ -12,8 +10,6 @@
     {
         "food_image": "https://i.ibb.co/JvD2x57/Bulk-Pasta-and-Sauce.png",
         "food_name": "Bulk Pasta and Sauce",
-        "donator_image": "https://i.ibb.co/93Sgz02/2.jpg",
-        "donator_name": "Sarah Johnson",
         "food_quantity": "15",
         "pickup_location": "Local Park",
         "expired_time": "72h",
@@ -22,8 +18,6 @@
     {
         "food_image": "https://i.ibb.co/ZXJnJX0/Bulk-Rice-and-Lentil-Curry.png",
         "food_name": "Bulk Rice and Lentil Curry",
-        "donator_image": "https://i.ibb.co/RzcrjTm/3.jpg",
-        "donator_name": "Emma Davis",
         "food_quantity": "12",
         "pickup_location": "Sports Complex",
         "expired_time": "36h",
@@ -32,8 +26,6 @@
     {
         "food_image": "https://i.ibb.co/0rMcxDj/Family-Sized-Fruit-Salad.png",
         "food_name": "Family-Sized Fruit Salad",
-        "donator_image": "https://i.ibb.co/zFJH6YS/4.jpg",
-        "donator_name": "Michael Wilson",
         "food_quantity": "20",
         "pickup_location": "Recreation Center",
         "expired_time": "48h",
@@ -42,8 +34,6 @@
     {
         "food_image": "https://i.ibb.co/FzLg5vf/Assorted-Breakfast-Pastries.jpg",
         "food_name": "Assorted Breakfast Pastries",
-        "donator_image": "https://i.ibb.co/MhSScWy/5.jpg",
-        "donator_name": "Olivia Brown",
         "food_quantity": "18",
         "pickup_location": "Community Hall",
         "expired_time": "40h",
@@ -52,11 +42,57 @@
     {
         "food_image": "https://i.ibb.co/qDsjxXD/Party-Platter-of-Sandwiches.jpg",
         "food_name": "Party Platter of Sandwiches",
-        "donator_image": "https://i.ibb.co/x18V6Vn/6.jpg",
-        "donator_name": "Liam Miller",
         "food_quantity": "24",
         "pickup_location": "Town Square",
         "expired_time": "60h",
         "additional_notes": "A variety of freshly baked pastries for breakfast."
+    },
+    {
+        "food_image": "https://i.ibb.co/6m4cMDV/Gourmet-Cheese-and-Charcuterie-Platter.jpg",
+        "food_name": "Gourmet Cheese and Charcuterie Platter",
+        "food_quantity": "12",
+        "pickup_location": "Art Center",
+        "expired_time": "48h",
+        "additional_notes": "An exquisite selection of cheese and cured meats."
+    },
+    {
+        "food_image": "https://i.ibb.co/VxmYY0Y/Freshly-Baked-Artisan-Bread.jpg",
+        "food_name": "Freshly Baked Artisan Bread",
+        "food_quantity": "30",
+        "pickup_location": "Bakery",
+        "expired_time": "24h",
+        "additional_notes": "Delicious handcrafted artisan bread."
+    },
+    {
+        "food_image": "https://i.ibb.co/kJ5gsgv/Roasted-Vegetable-Quinoa-Salad.jpg",
+        "food_name": "Roasted Vegetable Quinoa Salad",
+        "food_quantity": "15",
+        "pickup_location": "Wellness Center",
+        "expired_time": "36h",
+        "additional_notes": "A healthy and flavorful quinoa salad with roasted veggies."
+    },
+    {
+        "food_image": "https://i.ibb.co/3MxYvY6/Mixed-Berry-Smoothie-Bowls.jpg",
+        "food_name": "Mixed Berry Smoothie Bowls",
+        "food_quantity": "10",
+        "pickup_location": "Smoothie Bar",
+        "expired_time": "12h",
+        "additional_notes": "Delicious mixed berry smoothie bowls."
+    },
+    {
+        "food_image": "https://i.ibb.co/3MxYvY6/Mixed-Berry-Smoothie-Bowls.jpg",
+        "food_name": "Homemade Soup of the Day",
+        "food_quantity": "10",
+        "pickup_location": "Smoothie Bar",
+        "expired_time": "12h",
+        "additional_notes": "Delicious mixed berry smoothie bowls."
+    },
+    {
+        "food_image": "https://i.ibb.co/3MxYvY6/Mixed-Berry-Smoothie-Bowls.jpg",
+        "food_name": "Deluxe Seafood Paella",
+        "food_quantity": "10",
+        "pickup_location": "Smoothie Bar",
+        "expired_time": "12h",
+        "additional_notes": "Delicious mixed berry smoothie bowls."
     }
 ]
