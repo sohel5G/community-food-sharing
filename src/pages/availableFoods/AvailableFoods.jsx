@@ -11,21 +11,30 @@ const AvailableFoods = () => {
     const [searchText, setSearchText] = useState('');
     const [filtertext, setFilterText] = useState('');
 
-
     const handleSearch = e => {
         e.preventDefault()
         const searchText = e.target.searchText.value;
         setSearchText(searchText)
     }
 
-    // const { isPending, error, data } = useQuery({
+
+    // const { isPending, error, data:foods } = useQuery({
     //     queryKey: ['repoData'],
     //     queryFn: () =>
-    //         axiosSecure.get('http://localhost:5000/get-donated-foods')
+    //         axiosSecure.get('https://community-food-sharing-server-chi.vercel.app/get-donated-foods')
     //             .then(res => res.data)
 
     // })
 
+
+    useEffect(() => {
+
+        axiosSecure.get('/get-donated-foods')
+            .then(res => {
+                setFoods(res.data)
+            })
+
+    }, []);
 
 
     useEffect(() => {
@@ -35,13 +44,12 @@ const AvailableFoods = () => {
                 .then(res => {
                     setFoods(res.data)
                 })
-        } 
+        }
         else {
             axiosSecure.get('/get-donated-foods')
                 .then(res => {
                     setFoods(res.data)
                 })
-
         }
 
     }, [searchText]);
@@ -66,7 +74,7 @@ const AvailableFoods = () => {
     }, [filtertext]);
 
 
-    // if (isPending) {
+    // if (!isPending) {
     //     return <p className="text-9xl">loading....</p>
     // }
 
@@ -155,7 +163,7 @@ const AvailableFoods = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-9">
                                 {
-                                    
+
                                     foods.map(food => <AvailableFoodCard key={food._id} food={food}></AvailableFoodCard>)
                                 }
                             </div>
@@ -168,8 +176,5 @@ const AvailableFoods = () => {
 };
 
 export default AvailableFoods;
-
-
-
 
 

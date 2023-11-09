@@ -4,7 +4,7 @@ import axios from "axios";
 // import { AllContext } from "../provider/Authprovider";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://community-food-sharing-server-chi.vercel.app',
     withCredentials: true
 })
 
@@ -23,7 +23,7 @@ const useAxiosSecure = () => {
     //         console.log('Err trucking in the Interceptor', err.response);
 
     //         if (err.response.status === 401 || err.response.status === 403) {
-               
+
 
     //             userLogOut()
     //                 .then(() => {
