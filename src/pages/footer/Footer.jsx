@@ -3,6 +3,7 @@ import logowhite from "../../assets/Logo/logo_white.png"
 import { FaFacebookF, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import useThemeMode from "../../hooks/useThemeMode";
 import "./footer.css"
+import { Link } from "react-router-dom";
 
 const Footer = () => {
 
@@ -79,24 +80,24 @@ const Footer = () => {
                                 </h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">
+                                        <Link to={'/available-foods'} className="hover:underline">
                                             Available Foods
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">
+                                        <Link to={'/dashboard/add-food'} className="hover:underline">
                                             Add Food
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">
+                                        <Link to={'/dashboard/manage-foods'} className="hover:underline">
                                             Manage My Foods
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">
+                                        <Link to={'/dashboard/food-request'} className="hover:underline">
                                             My Food Request
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

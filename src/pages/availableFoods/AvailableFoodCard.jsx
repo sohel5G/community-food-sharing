@@ -6,7 +6,7 @@ const AvailableFoodCard = ({ food }) => {
     const { food_name, food_image, pickup_location, food_quantity, expired_time, additional_notes, donator_image, donator_name, _id, food_status } = food;
 
     return (
-        <div className='shadow-md rounded-md p-3 border group '>
+        <div className='shadow-md rounded-md p-3 border group'>
             <div className='relative'>
                 <Link to={food_status === 'Available' ? `/available-food/${_id}` : '/available-foods'}>
                 <img className='transition-transform transform group-hover:scale-105 ease-in-out duration-500' src={food_image} alt={food_name} />

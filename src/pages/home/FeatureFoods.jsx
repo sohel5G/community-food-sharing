@@ -5,7 +5,6 @@ import FeatureFoodsCard from './FeatureFoodsCard';
 const FeatureFoods = () => {
     const [foods, setFoods] = useState([]);
     const axiosSecure = useAxiosSecure();
-    const [availableFoods, setavAilableFoods] = useState([])
 
     useEffect(() => {
         axiosSecure.get('/get-donated-foods')
@@ -13,17 +12,8 @@ const FeatureFoods = () => {
                 setFoods(res.data);
             });
     }, [axiosSecure]);
-
-    useEffect(() => {
-        if (foods.length > 0) {
-            const availableFoods = foods.filter(food => food.food_status === 'Available')
-            setavAilableFoods(availableFoods)
-        }
-
-    }, [foods])
-
    
-    const top6Items = [...availableFoods].sort((a, b) => b.expired_time - a.expired_time).slice(0, 6);
+    const top6Items = [...foods].sort((a, b) => b.food_quantity - a.food_quantity).slice(0, 6);
 
     return (
         <div>

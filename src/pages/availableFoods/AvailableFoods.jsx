@@ -3,19 +3,29 @@ import { useEffect } from "react";
 import AvailableFoodCard from "./AvailableFoodCard";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
+// import { useQuery } from "@tanstack/react-query";
 
 const AvailableFoods = () => {
     const [foods, setFoods] = useState([])
     const axiosSecure = useAxiosSecure()
     const [searchText, setSearchText] = useState('');
     const [filtertext, setFilterText] = useState('');
-    const [availableFoods, setavAilableFoods] = useState([])
+
 
     const handleSearch = e => {
         e.preventDefault()
         const searchText = e.target.searchText.value;
         setSearchText(searchText)
     }
+
+    // const { isPending, error, data } = useQuery({
+    //     queryKey: ['repoData'],
+    //     queryFn: () =>
+    //         axiosSecure.get('http://localhost:5000/get-donated-foods')
+    //             .then(res => res.data)
+
+    // })
+
 
 
     useEffect(() => {
@@ -34,7 +44,7 @@ const AvailableFoods = () => {
 
         }
 
-    }, [searchText, axiosSecure]);
+    }, [searchText]);
 
 
     useEffect(() => {
@@ -56,15 +66,9 @@ const AvailableFoods = () => {
     }, [filtertext]);
 
 
-
-  useEffect(() =>{
-      if (foods.length > 0) {
-          const availableFoods = foods.filter(food => food.food_status === 'Available')
-          setavAilableFoods(availableFoods)
-      }
-
-  }, [foods])
-   
+    // if (isPending) {
+    //     return <p className="text-9xl">loading....</p>
+    // }
 
 
     return (
@@ -143,7 +147,7 @@ const AvailableFoods = () => {
             </section>
             <section>
                 {
-                    availableFoods.length === 0 ?
+                    foods.length === 0 ?
                         <>
                             <h1 className="text-4xl font-medium text-center dark:text-white"> No Foods found</h1>
                         </> :
@@ -152,7 +156,7 @@ const AvailableFoods = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-9">
                                 {
                                     
-                                    availableFoods.map(food => <AvailableFoodCard key={food._id} food={food}></AvailableFoodCard>)
+                                    foods.map(food => <AvailableFoodCard key={food._id} food={food}></AvailableFoodCard>)
                                 }
                             </div>
 
