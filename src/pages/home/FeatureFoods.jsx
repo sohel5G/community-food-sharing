@@ -7,7 +7,7 @@ const FeatureFoods = () => {
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        axiosSecure.get('/get-donated-foods')
+        axiosSecure.get('/get-donated-all-foods')
             .then(res => {
                 setFoods(res.data);
             });
