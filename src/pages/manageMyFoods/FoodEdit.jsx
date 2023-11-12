@@ -20,7 +20,7 @@ const FoodEdit = () => {
     }, [food.expired_time])
 
     useEffect(() => {
-        axiosSecure.get(`/get-donated-foods-on-single-page?productId=${id}&verifyUserEmail=${user?.email}`)
+        axiosSecure.get(`/get-donated-foods-on-edit-page-input-field?productId=${id}&verifyUserEmail=${user?.email}`)
             .then(res => {
                 setFood(res.data)
             })

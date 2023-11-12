@@ -4,7 +4,7 @@ import axios from "axios";
 // import { AllContext } from "../provider/Authprovider";
 
 const axiosSecure = axios.create({
-    baseURL: 'https://community-food-sharing-server-chi.vercel.app',
+    baseURL: 'http://localhost:5000',
     withCredentials: true
 })
 

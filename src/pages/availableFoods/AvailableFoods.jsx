@@ -21,7 +21,7 @@ const AvailableFoods = () => {
     // const { isPending, error, data:foods } = useQuery({
     //     queryKey: ['repoData'],
     //     queryFn: () =>
-    //         axiosSecure.get('https://community-food-sharing-server-chi.vercel.app/get-donated-foods')
+    //         axiosSecure.get('http://localhost:5000/get-donated-foods')
     //             .then(res => res.data)
 
     // })
