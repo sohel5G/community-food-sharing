@@ -19,7 +19,7 @@ const AvailableFoods = () => {
 
     useEffect(() => {
 
-        axiosSecure.get('/get-donated-all-foods')
+        axiosSecure.get('/get-donated-foods')
             .then(res => {
                 setFoods(res.data)
             })
@@ -30,13 +30,13 @@ const AvailableFoods = () => {
     useEffect(() => {
 
         if (searchText) {
-            axiosSecure.get(`/get-donated-search-foods?search=${searchText}`)
+            axiosSecure.get(`/get-donated-foods?search=${searchText}`)
                 .then(res => {
                     setFoods(res.data)
                 })
         }
         else {
-            axiosSecure.get('/get-donated-all-foods')
+            axiosSecure.get('/get-donated-foods')
                 .then(res => {
                     setFoods(res.data)
                 })
@@ -48,13 +48,13 @@ const AvailableFoods = () => {
     useEffect(() => {
 
         if (filtertext) {
-            axiosSecure.get(`/get-donated-sorted-foods?sort=${filtertext}`)
+            axiosSecure.get(`/get-donated-foods?sort=${filtertext}`)
                 .then(res => {
                     setFoods(res.data)
                 })
         }
         else {
-            axiosSecure.get('/get-donated-all-foods')
+            axiosSecure.get('/get-donated-foods')
                 .then(res => {
                     setFoods(res.data)
                 })
