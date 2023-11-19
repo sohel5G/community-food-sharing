@@ -1,51 +1,48 @@
 import axios from "axios";
-// import { useContext, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { AllContext } from "../provider/Authprovider";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import auth from "../config/AuthConfig";
+import { useEffect } from "react";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://community-food-sharing-server-chi.vercel.app',
     withCredentials: true
 })
 
+// http://localhost:5000
+//https://community-food-sharing-server-chi.vercel.app
+
 const useAxiosSecure = () => {
+    const navigate = useNavigate()
 
+    useEffect(() => {
+        axiosSecure.interceptors.response.use(function (response) {
+            return response;
+        }, async function (error) {
 
-    // const navigate = useNavigate()
-    // const { userLogOut } = useContext(AllContext);
+            if (error.response?.status == 401 || error.response?.status == 403) {
 
+                await signOut(auth)
+                    .then(() => {
 
-    // useEffect(() => {
-    //     axiosSecure.interceptors.response.use(res => {
-    //         return res;
-    //     }, err => {
+                        console.log('logout by Interceptor')
 
-    //         console.log('Err trucking in the Interceptor', err.response);
+                        navigate('/login')
+                    }).catch((err) => {
 
-    //         if (err.response.status === 401 || err.response.status === 403) {
+                        console.log('Interceptor logout error', err)
 
+                    });
 
-    //             userLogOut()
-    //                 .then(() => {
+                console.log('axios secure error', error.response.status);
+            }
 
-    //                     console.log('logout by Interceptor')
-
-    //                     navigate('/login')
-    //                 }).catch((err) => {
-
-    //                     console.log('Interceptor logout error', err)
-
-    //                 });
-
-    //             console.log('Logout the user')
-
-    //         }
-    //     })
-    // }, [userLogOut, navigate])
-
-
+            return Promise.reject(error);
+        });
+    }, [navigate])
 
     return axiosSecure;
 };
 
 export default useAxiosSecure;
+

@@ -43,14 +43,14 @@ const Authprovider = ({ children }) => {
             const userEmail = currentUser?.email || user?.email;
             // set a token for this user 
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', { email: userEmail }, { withCredentials: true })
+                axios.post('https://community-food-sharing-server-chi.vercel.app/jwt', { email: userEmail }, { withCredentials: true })
                     .then(res => {
                         console.log('Token set : ', res.data)
                     })
             }// set a token for this user end
             //remove token if user logout
             else {
-                axios.post('http://localhost:5000/logout', { email: userEmail }, { withCredentials: true })
+                axios.post('https://community-food-sharing-server-chi.vercel.app/logout', { email: userEmail }, { withCredentials: true })
                     .then(res => {
                         console.log('Token removed', res.data)
                     })
