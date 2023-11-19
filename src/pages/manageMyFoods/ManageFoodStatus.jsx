@@ -54,12 +54,12 @@ const ManageFoodStatus = () => {
                     <form onSubmit={handleManageFood}>
                         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                             <div className="sm:col-span-2">
-                                <div>
+                                <div className="text-black dark:text-white">
                                     <img className="w-20 rounded-md" src={requester_image} alt="requester_name" />
                                 </div>
-                                <p className="text-xl py-2"> <span className="font-medium">Requester Name :</span> {requester_name} </p>
-                                <p className="text-xl py-2"> <span className="font-medium">Requester Email :</span> {food_requester_email} </p>
-                                <p className="text-xl py-2"> <span className="font-medium">Request Time and Date :</span> {request_date} </p>
+                                <p className="text-xl py-2"> <span className="font-medium dark:text-white">Requester Name :</span> {requester_name} </p>
+                                <p className="text-xl py-2"> <span className="font-medium dark:text-white">Requester Email :</span> {food_requester_email} </p>
+                                <p className="text-xl py-2"> <span className="font-medium dark:text-white">Request Time and Date :</span> {request_date} </p>
                             </div>
                         </div>
                         <div className="max-w-[250px] pt-3">
