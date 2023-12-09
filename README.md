@@ -1,12 +1,10 @@
-##Community Food Sharing - Food Donation Website Overview
+## Community Food Sharing - Food Donation Website Overview
 
-### Website Live link 1 >  [https://food-sharing-apps.netlify.app/](https://food-sharing-apps.netlify.app/)
-### Website Live link 2 >  [https://food-sharing-apps.web.app/](https://food-sharing-apps.web.app/)
+#### Website Live link 1 >  [https://food-sharing-apps.netlify.app/](https://food-sharing-apps.netlify.app/)
+#### Website Live link 2 >  [https://food-sharing-apps.web.app/](https://food-sharing-apps.web.app/)
 
 ### Project Description:
 Community Food Sharing is a compassionate platform designed to foster the sharing of surplus food among individuals, promoting community collaboration and addressing food scarcity. The website is committed to creating a space where individuals can contribute to the well-being of their community by sharing food resources.
-
-### Key Features:
 
 #### Excess Food Sharing:
 - Facilitates the seamless sharing of excess food resources within the community.
